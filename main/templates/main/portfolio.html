@@ -1,0 +1,170 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+<section>
+  <div class="innerPageBannerCol">
+    <div class="container">
+      <div class="row g-4 g-md-3  align-items-center">
+        <div class="col-md-6">
+          <div class="bannerContent">
+            <h1 class="xlTitle pb-md-3">See my recent projects below</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h1 class="mdTitle cs1Title" style="margin-top: -3%; margin-bottom: 4%; margin-left: 4%; font-size: 230%">Web Development Project</h1>
+  <div class="lightBg">
+    <div class="container">
+      <div class="portfolioContentMain">
+        <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+          {% for obj in object_list %}
+          {% if obj.is_webdev == True %}
+          
+          <div class="col-md-6 pColMain" >
+            <div class="pCol" id="hoverportfolio" onmouseover="hoverEffect(this)" onmouseout="resetEffect(this)">
+              <a href="{% url 'main:portfolio' slug=obj.slug %}" >
+                <img src="{{obj.image.url}}" alt="..." class="pImg" style="">
+                <div>
+                    <h1 class="mdTitle cs1Title" style="margin-top: 10px; min-height: 2px">{{obj.name}}</h1>
+                  <ul class="portfolioOption">
+                    <a href="{{obj.urltproject}}">
+                      <li><span class="dateLbl">Visit the Site</span></li>
+                    </a>
+                  </ul>
+                </div>
+              </a>
+            </div>
+          </div>
+       
+          {% endif %}
+          {% endfor %}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section>
+  <h1 class="mdTitle cs1Title"style="margin-top: 3%;margin-bottom: 4%; margin-left: 4%;font-size: 230%">Game Development Project</h1>
+  <div class="lightBg">
+    <div class="container">
+      <div class="portfolioContentMain">
+        <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+          {% for obj in object_list %}
+          {% if obj.is_game == True %}
+          <div class="col-md-6 pColMain">
+            <div class="pCol" onmouseover="hoverEffect(this)" onmouseout="resetEffect(this)">
+              <a href="{% url 'main:portfolio' slug=obj.slug %}" >
+              <img src="{{obj.image.url}}" alt="..." class="pImg">
+              <h1 class="mdTitle cs1Title" style="margin-top: 10px;min-height: 2px">{{obj.name}}</h1>
+              <ul class="portfolioOption" >
+                <a href="{{obj.urltproject}}"><li><span class="dateLbl">Play !</span></li></a>
+              </ul>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h1 class="mdTitle cs1Title"style="margin-top: 3%;margin-bottom: 4%; margin-left: 4%;font-size: 230%">UI/UX Designs</h1>
+  <div class="lightBg">
+    <div class="container">
+      <div class="portfolioContentMain">
+        <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+          {% for obj in object_list %}
+          {% if obj.is_UIUX == True %}
+          <div class="col-md-6 pColMain">
+            <div class="pCol" onmouseover="hoverEffect(this)" onmouseout="resetEffect(this)">
+              <a href="{{obj.urltproject}}" >
+              <img src="{{obj.image.url}}" alt="..." class="pImg">
+              <h1 class="mdTitle cs1Title" style="margin-top: 10px;min-height: 2px">{{obj.name}}</h1>
+              <ul class="portfolioOption">
+                <a href="{{obj.urltproject}}"><li><span class="dateLbl">UI Designs</span></li></a>
+              </ul>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h1 class="mdTitle cs1Title"style="margin-top: 3%;margin-bottom: 4%; margin-left: 4%;font-size: 230%">Graphic Designing Projects</h1>
+  <div class="lightBg">
+    <div class="container">
+      <div class="portfolioContentMain">
+        <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+          {% for obj in object_list %}
+          {% if obj.is_graphic_design == True %}
+          <div class="col-md-6 pColMain">
+            <div class="pCol" onmouseover="hoverEffect(this)" onmouseout="resetEffect(this)">
+              <a href="{{obj.urltproject}}" >
+              <img src="{{obj.image.url}}" alt="..." class="pImg">
+              <h1 class="mdTitle cs1Title" style="margin-top: 10px;min-height: 2px">{{obj.name}}</h1>
+              <ul class="portfolioOption" style="">
+                <a href="{{obj.urltproject}}"><li><span class="dateLbl">See the Design</span></li></a>
+              </ul>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================================
+End Content
+================================= -->
+{% endblock%}    
